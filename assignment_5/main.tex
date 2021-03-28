@@ -1,0 +1,230 @@
+\documentclass[12pt, a4paper]{report}
+\usepackage[a4paper, total={6in, 8in}]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{multicol}
+\setlength{\columnsep}{1cm}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+% \begin{document}
+
+\usepackage{listings}
+\usepackage{color}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=C++,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
+
+\title{DAA Assignment 4}
+\author{GROUP 17\\
+PRAVALLIKA KODI
+ (IIT2019234)\\ 
+VISHWAM SHRIRAM MUNDADA
+ (IIT2019235)\\ 
+NOONSAVATH SRAVANA SAMYUKTA
+ (IIT2019236)\\
+B.tech Information Technology business Informatics\\
+Indian Institute of Information Technology, Allahabad}
+\date{28 March 2021}
+
+
+\begin{document}
+
+\maketitle
+
+\begin{multicols}{2}
+\section{Question}
+
+\textbf{Given a string S, count the number of non-empty sub strings that are
+palindromes. A sub string is any continuous sequence of characters in the
+string. A string is said to be palindrome, if the reverse of the string is same
+as itself. Two sub strings are different if they occur at different positions in
+S. Solve using Dynamic programming.}
+\section{Abstract}
+
+The project aims at counting  number of non-empty sub strings that are palindromes in a given string.
+
+
+\section{Introduction}
+Here, different approaches are analysed and used to achieve results.
+These approaches are:\\
+1) Brute force\\
+2) Dynamic programming
+ 
+
+
+In this report we will explain our solution approach. We explain our code in detail. We will discuss the time complexity analysis and the space complexity analysis. And last but not least, the conclusion.
+
+
+
+\section{Code Explanation}
+\subsection{Brute force}
+
+This solution involves two nested loops 
+the first loop goes from 0 to size of the string
+and second loop iterates from i to size of the string
+and thus two loops cover all the possible substrings 
+starting from each index
+then for each substring we will check if it  is palindrome or not
+we will be increasing the count variable if we the substring is a palindrome
+count will be our final answer\\
+\hline\\
+\textbf{Algorithm 1 Brute force}
+
+\begin{lstlisting}
+
+function MAIN()
+	string s
+	Input s
+
+	print COUNTPALINDROMES(s)
+
+function COUNTPALINDROMES(s)
+	count  <-  0
+
+	for i <- 0 to length[s]
+		for j <- i to length[s]
+			if ISPALINDROME(s, i, j)
+				count <- count+1
+
+	return count
+
+function ISPALINDROME(s, st, end)
+	mid <- (end-st+1)/2
+
+	for i <-0 to mid
+		if(s[st+i] != s[end-i])
+			return false
+
+	return true
+
+\end{lstlisting}
+
+
+\subsection{Dynamic programming}
+
+In this DP approach we will maintain a boolean 2D array dp
+the dp[i][j] represents a substring from index i to j of the string
+and $j >= i$ condition will be maintained.
+if i = j then the length of substring is 1 and it is always a palindrome
+so dp[i][i] will be true
+if j = i+1 then the length of substring will be 2 and we will just check if s[i] = s[j]
+and mark it true accordingly
+in other cases we will just check if the extremes of the substrings are equal or not
+if they are equal then we will check for middle portion by looking at dp[i+1][j-1]
+we will be counting trues and get our answer\\
+\hline\\
+
+\textbf{Algorithm 2 DP}
+\begin{lstlisting}
+
+function MAIN()
+	string s
+	Input s
+
+	print COUNTPALINDROMES(s)
+
+function COUNTPALINDROMES(s)
+	n <- length[s]
+	count <- 0
+	bool dp[n][n]
+	MEMSET(dp, false, SIZEOF(dp))
+
+	for gap <- 0 to n
+		for i <- 0 to n-gap
+			j <- i+gap
+
+			if gap = 0
+				dp[i][j] = true
+
+			else if gap = 1
+				dp[i][j] = s[i] == s[j]
+
+			else
+				dp[i][j] = s[i] == s[j] && dp[i+1][j-1]
+
+			if(dp[i][j])
+				count <- count+1
+
+	return count
+\end{lstlisting}
+
+
+\section{Algorithm  Analysis}
+
+\subsection{Brute force}
+In case of brute force algorithm we use nested loop to traverse through the string for all possible substrings. Now inside this nested loop we check if that substring is palindrome. To check whether if it is palindromic substring, we use a for loop.\\
+So, totally we use nested loop which consists of 3 ’for’ loops, therefore the time complexity is O(N^3).\\
+
+Time Complexity: O(N^3)\\
+Space Complexity: O(1)\\
+
+O(1). We don't need to allocate any extra space since we are repeatedly iterating on the input string itself.
+
+
+
+\subsection{Dynamic programming}
+In case of dynamic programming approach, we create a dp table (dp[n][n]), we traverse through the table and give the values as discussed in previous slides. So, for traversing we use a nested loop.So the time complexity O(N^2)\\
+Time Complexity: O(N^2)\\
+
+As we have created a table of size n x n, space complexity is also O(N^2)\\
+
+Space Complexity: O(N^2)\\
+
+\section{Graph analysis}
+
+
+\textbf{Brute force}\\
+In the brute force as n increases, the time increases by n^3.\\
+\includegraphics[width=\linewidth]{Screenshot (9).png}
+
+\textbf{Dynamic programming}\\
+In the Dynamic programming as n increases, the time increases by n^2.\\
+
+\includegraphics[width=\linewidth]{Screenshot (7).png}
+
+\section{Conclusion}
+From the experimental study we concluded that the average running time of Dynamic programming algorithm is best,  which can be observed from the mutual graph of Dynamic programming algorithm and Brute Force algorithm as shown.
+
+
+\section{References}
+
+\url{https://www.geeksforgeeks.org/longest-palindrome-substring-set-1//}
+
+\url{https://www.google.com/amp/s/www.geeksforgeeks.org/count-palindrome-sub-strings-string/amp/}
+
+\section{code}
+
+\url{https://ideone.com/5j8HQW}
+\url{https://ideone.com/ZkKHwv}
+
+
+
+\end{multicols}
+
+\end{document}
