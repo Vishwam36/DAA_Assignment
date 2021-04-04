@@ -12,13 +12,15 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int findSum(vector<vector<int> > &a, int x, int y, int z, int w)
+int A[101][101];
+
+int findSum(int x, int y, int z, int w)
 {
 	int sum = 0;
 	
 	for(int i = x; i <= z; ++i)
 		for(int j = y; j <= w; ++j)
-			sum += a[i][j];
+			sum += A[i][j];
 	
 	return sum;
 }
@@ -29,10 +31,10 @@ int main()
 	int x, y, z, w;
 	int n = 0, m = 0;
 	cin >> n >> m;
-	vector<vector<int> > a(n, vector<int>(m, 0));
+	// vector<vector<int> > a(n, vector<int>(m, 0));
 	for(int i = 0; i < n; ++i)
 		for(int j = 0; j < m; ++j)
-			cin >> a[i][j];
+			cin >> A[i][j];
 	
 	for(int i = 0; i < n; ++i)
 	{
@@ -42,7 +44,7 @@ int main()
 			{
 				for(int l = 0; l < n; ++l)
 				{
-					tempSum = findSum(a, i, j, k, l);
+					tempSum = findSum(i, j, k, l);
 					if(tempSum > maxSum)
 					{
 						x = i;

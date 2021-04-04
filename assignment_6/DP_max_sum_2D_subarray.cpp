@@ -12,6 +12,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+int A[101][101];
+
 vector<int> kadane(vector<int> &v)
 {
     int maxSum = INT_MIN, tempSum = 0;
@@ -41,11 +43,10 @@ int main()
 {
 	int r = 0, c = 0, maxSum = INT_MIN, x, y, z, w;
     cin >> r >> c;
-    vector<vector<int> > v(r, vector<int> (c, 0));
-    
+
     for(int i = 0; i < r; ++i)
         for(int j = 0; j < c; ++j)
-            cin >> v[i][j];
+            cin >> A[i][j];
     
     for(int i = 0; i < r; ++i)
     {
@@ -54,7 +55,7 @@ int main()
         {
             for(int col = 0; col < c; ++col)
             {
-                sum[col] += v[j][col];
+                sum[col] += A[j][col];
             }
             vector<int> res = kadane(sum);
             if(maxSum < res[2])
