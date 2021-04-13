@@ -6,10 +6,12 @@
 |IIT2019234   	|Kodi Pravallika	             |iit2019234  |
 |IIT2019235   	|Vishwam Shriram Mundada	     |Vishwam36   |
 |IIT2019236   	|Noonsavath Sravana Samyukta	 |samyukta9500|
+<br/>
 
 #### Group no : 17
 #### Faculty Name - Dr. Rahul Kala
 #### Mentor Name- "Md. Meraz"
+<br/>
 
 ## Problem Statement
 ###### Given a string S, count the number of non-empty sub strings that are palindromes. A sub string is any continuous sequence of characters in the string. A string is said to be palindrome, if the reverse of the string is same as itself. Two sub strings are different if they occur at different positions in S. Solve using Dynamic programming.
@@ -20,6 +22,7 @@
 
 ##### Download project
 ###### https://github.com/Vishwam36/DAA_Assignment
+<br/>
 
 ##### Project Initialize 
 
@@ -56,9 +59,9 @@
 ###### Input: abcbcc
 
 ###### Output: 9
+<br/>
 
-
-###### Test Case-2
+##### Test Case-2
 ###### Input: a
 
 ###### Output: 1
@@ -71,21 +74,21 @@
 
 ### Analysis
 
-*Time Complexity*
+##### *Time Complexity*
 
 ##### Algorithm 1:brute force
 ###### The time complexity of brute force algorithm is : O(n^3)
-
+<br/>
 ##### Algorithm 2:dynamic programming
 ###### The time complexity of dynamic programming algorithm is : O(n^2)
 
 ##### The best case time complexity will be : O(n^2)
-
-*Space Complexity*
+<br/>
+##### *Space Complexity*
 
 ##### Algorithm 1:brute force
 ###### The space complexity of brute force algorithm is : O(1)
-
+<br/>
 ##### Algorithm 2:dynamic programming
 ###### The space complexity of dynamic programming algorithm is : O(n^2)
 
@@ -107,6 +110,7 @@ https://www.geeksforgeeks.org/longest-palindrome-substring-set-1/
 [ 2 ]
 https://www.geeksforgeeks.org/count-palindrome-sub-strings-string/
 
+<br/>
 #### Codes
 
 ##### Brute force : https://ideone.com/ZkKHwv
