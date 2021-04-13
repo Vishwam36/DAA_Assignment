@@ -74,21 +74,24 @@
 
 ### Analysis
 
-##### *Time Complexity*
+##### Time Complexity
 
 ##### Algorithm 1:brute force
 ###### The time complexity of brute force algorithm is : O(n^3)
 <br/>
+
 ##### Algorithm 2:dynamic programming
 ###### The time complexity of dynamic programming algorithm is : O(n^2)
 
 ##### The best case time complexity will be : O(n^2)
 <br/>
-##### *Space Complexity*
+
+##### Space Complexity
 
 ##### Algorithm 1:brute force
 ###### The space complexity of brute force algorithm is : O(1)
 <br/>
+
 ##### Algorithm 2:dynamic programming
 ###### The space complexity of dynamic programming algorithm is : O(n^2)
 
@@ -111,6 +114,7 @@ https://www.geeksforgeeks.org/longest-palindrome-substring-set-1/
 https://www.geeksforgeeks.org/count-palindrome-sub-strings-string/
 
 <br/>
+
 #### Codes
 
 ##### Brute force : https://ideone.com/ZkKHwv
