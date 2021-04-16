@@ -35,8 +35,8 @@
 
 ##### Run the code
 
-###### g++ brute_force_app.cpp
-###### g++ DP_app.cpp
+###### g++ BF_max_sum_2D_subarray.cpp
+###### g++ DP_max_sum_2D_subarray.cpp
 
 ###### Follow the previous step by entering ./a.out
 
